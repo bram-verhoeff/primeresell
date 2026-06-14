@@ -14,7 +14,9 @@ export function getStoredTheme(): Theme {
 }
 
 export function applyTheme(theme: Theme) {
-  document.documentElement.setAttribute("data-theme", theme);
+  const root = document.documentElement;
+  root.setAttribute("data-theme", theme);
+  root.style.colorScheme = theme;
 }
 
 export function storeTheme(theme: Theme) {

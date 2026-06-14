@@ -22,16 +22,16 @@ export const metadata: Metadata = {
   ],
 };
 
-const themeScript = `
+const themeInitScript = `
 (function () {
   try {
     var theme = localStorage.getItem("primeresell-theme");
-    document.documentElement.setAttribute(
-      "data-theme",
-      theme === "dark" ? "dark" : "light"
-    );
+    theme = theme === "dark" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.style.colorScheme = theme;
   } catch (e) {
     document.documentElement.setAttribute("data-theme", "light");
+    document.documentElement.style.colorScheme = "light";
   }
 })();
 `;
@@ -49,7 +49,7 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider>{children}</ThemeProvider>

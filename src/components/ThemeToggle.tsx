@@ -10,6 +10,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
+      suppressHydrationWarning
       aria-label={isDark ? "Schakel naar licht thema" : "Schakel naar donker thema"}
       title={isDark ? "Licht thema" : "Donker thema"}
       className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-surface text-muted transition-colors hover:border-accent-purple/40 hover:text-foreground"

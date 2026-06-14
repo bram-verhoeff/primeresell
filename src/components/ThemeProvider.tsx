@@ -4,7 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useState,
 } from "react";
 import {
@@ -24,13 +24,11 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("light");
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const stored = getStoredTheme();
     setThemeState(stored);
     applyTheme(stored);
-    setMounted(true);
   }, []);
 
   const setTheme = useCallback((next: Theme) => {
@@ -49,9 +47,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <ThemeContext.Provider
-      value={{ theme: mounted ? theme : "light", setTheme, toggleTheme }}
-    >
+    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

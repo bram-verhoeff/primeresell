@@ -1,40 +1,49 @@
 @import "tailwindcss";
 
-:root,
-[data-theme="light"] {
-  --background: #f8f8fc;
-  --foreground: #0f0f14;
-  --surface: #ffffff;
-  --surface-elevated: #f0f0f6;
-  --border: rgba(0, 0, 0, 0.08);
-  --muted: rgba(0, 0, 0, 0.55);
-  --overlay: rgba(0, 0, 0, 0.5);
-  --accent-purple: #9333ea;
-  --accent-cyan: #0891b2;
-  --accent-coral: #e11d48;
-  --accent-amber: #d97706;
-  --accent-green: #16a34a;
-  --body-gradient-1: rgba(168, 85, 247, 0.08);
-  --body-gradient-2: rgba(34, 211, 238, 0.07);
-  --body-gradient-3: rgba(251, 113, 133, 0.06);
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
 }
 
-[data-theme="dark"] {
-  --background: #0a0a0f;
-  --foreground: #f4f4f5;
-  --surface: #12121a;
-  --surface-elevated: #1a1a26;
-  --border: rgba(255, 255, 255, 0.1);
-  --muted: rgba(255, 255, 255, 0.55);
-  --overlay: rgba(0, 0, 0, 0.7);
-  --accent-purple: #a855f7;
-  --accent-cyan: #22d3ee;
-  --accent-coral: #fb7185;
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html,
+html[data-theme="light"] {
+  --background: #f7f4ef;
+  --foreground: #141210;
+  --surface: #fffcf8;
+  --surface-elevated: #ede8df;
+  --border: rgba(20, 18, 16, 0.1);
+  --muted: rgba(20, 18, 16, 0.58);
+  --overlay: rgba(20, 18, 16, 0.55);
+  --accent-purple: #9a7733;
+  --accent-cyan: #0d6b52;
+  --accent-coral: #8b2942;
+  --accent-amber: #b45309;
+  --accent-green: #166534;
+  --body-gradient-1: rgba(154, 119, 51, 0.1);
+  --body-gradient-2: rgba(13, 107, 82, 0.08);
+  --body-gradient-3: rgba(139, 41, 66, 0.06);
+}
+
+html[data-theme="dark"] {
+  --background: #0e0d0b;
+  --foreground: #f2ece2;
+  --surface: #171512;
+  --surface-elevated: #211e1a;
+  --border: rgba(242, 236, 226, 0.1);
+  --muted: rgba(242, 236, 226, 0.55);
+  --overlay: rgba(0, 0, 0, 0.72);
+  --accent-purple: #d4af37;
+  --accent-cyan: #5eead4;
+  --accent-coral: #f472b6;
   --accent-amber: #fbbf24;
   --accent-green: #4ade80;
-  --body-gradient-1: rgba(168, 85, 247, 0.12);
-  --body-gradient-2: rgba(34, 211, 238, 0.1);
-  --body-gradient-3: rgba(251, 113, 133, 0.08);
+  --body-gradient-1: rgba(212, 175, 55, 0.1);
+  --body-gradient-2: rgba(94, 234, 212, 0.07);
+  --body-gradient-3: rgba(244, 114, 182, 0.06);
 }
 
 @theme inline {
@@ -53,10 +62,6 @@
   --font-sans: var(--font-inter);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -72,26 +77,41 @@ body {
 }
 
 ::selection {
-  background: rgba(168, 85, 247, 0.25);
+  background: rgba(154, 119, 51, 0.28);
   color: var(--foreground);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-cyan) 50%, var(--accent-coral) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-purple) 0%,
+    var(--accent-cyan) 55%,
+    var(--accent-coral) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .bg-gradient-accent {
-  background: linear-gradient(135deg, var(--accent-purple) 0%, #6366f1 50%, var(--accent-cyan) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-purple) 0%,
+    #7a5c1e 50%,
+    var(--accent-cyan) 100%
+  );
 }
 
 .border-gradient {
   border: 1px solid transparent;
   background:
     linear-gradient(var(--surface), var(--surface)) padding-box,
-    linear-gradient(135deg, rgba(168, 85, 247, 0.5), rgba(34, 211, 238, 0.5), rgba(251, 113, 133, 0.5)) border-box;
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent-purple) 50%, transparent),
+      color-mix(in srgb, var(--accent-cyan) 50%, transparent),
+      color-mix(in srgb, var(--accent-coral) 50%, transparent)
+    ) border-box;
 }
 
 @keyframes fade-in {
