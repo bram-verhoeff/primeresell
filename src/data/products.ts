@@ -124,10 +124,7 @@ export const products: Product[] = [
       "Verstelbare gesp-sluiting",
       "Made in Italy",
     ],
-    images: [
-      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=800&q=80",
-      "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=800&q=80",
-    ],
+    images: ["/products/Petten/Gucci/guccipetbeige.png"],
   },
   {
     id: "gucci-gg-baseball-hat-web-black",
@@ -147,9 +144,6 @@ export const products: Product[] = [
       "Verstelbare gesp-sluiting",
       "Made in Italy",
     ],
-    images: [
-      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80",
-      "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=800&q=80",
-    ],
-  },
+    images: ["/products/Petten/Gucci/guccipetzwart.png"],
+  }
 ];
